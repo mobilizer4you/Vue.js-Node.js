@@ -15,7 +15,7 @@ export const counterStore = {
     },
     getters: {
         counter(state) {
-            return state.count
+            return state
         }
     }
 }
