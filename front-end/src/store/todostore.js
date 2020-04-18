@@ -13,7 +13,7 @@ export const todoStore = {
             title: 'Todo C',
             project: 'Project C',
             done: true
-        }]
+        }],
     },
     mutations: {
         completeTodo(state, payload) {
@@ -26,7 +26,6 @@ export const todoStore = {
         },
         deleteTodo(state, payload) {
             const todoIndex = state.todos.indexOf(payload);
-            console.log(todoIndex);
             state.todos.splice(todoIndex, 1);
         },
         addTodo(state, todo) {
@@ -35,7 +34,7 @@ export const todoStore = {
                 project: todo.project,
                 done: todo.done
             });
-            // sweetalert('Success!', 'To-Do created!', 'success');
+        // sweetalert('Success!', 'To-Do created!', 'success');
         }
     },
     actions: {

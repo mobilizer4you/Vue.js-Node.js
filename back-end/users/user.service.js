@@ -1,6 +1,6 @@
-﻿const config = require('config.json');
+﻿const config = require('../config.json');
 const jwt = require('jsonwebtoken');
-const Role = require('_helpers/role');
+const Role = require('../_helpers/role');
 
 // users hardcoded for simplicity, store in a db for production applications
 const users = [
