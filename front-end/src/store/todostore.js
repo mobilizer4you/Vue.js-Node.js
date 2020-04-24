@@ -1,19 +1,8 @@
 export const todoStore = {
     namespaced: true,
     state: {
-        todos: [{
-            title: 'Todo A',
-            project: 'Project A',
-            done: false
-        }, {
-            title: 'Todo B',
-            project: 'Project B',
-            done: true
-        }, {
-            title: 'Todo C',
-            project: 'Project C',
-            done: true
-        }],
+        todos: [],
+        todo:''
     },
     mutations: {
         completeTodo(state, payload) {
@@ -49,11 +38,19 @@ export const todoStore = {
         },
         addTodo({ commit }, todo) {
             commit('addTodo', todo)
-        }
+        },
+        showTodo ({ commit }) {
+            axios.get('/tasks')
+                .then((response) => {
+                commit('showTodo',  response.data.posts );
+            }, 
+            (error) => {
+                console.log(error);
+            })
+        },
     },
     getters: {
-        showTodo(state) {
-            return state.todos
-        }
+        todo: state => state.todo,
+        todos: state => state.todos
     }
 }
